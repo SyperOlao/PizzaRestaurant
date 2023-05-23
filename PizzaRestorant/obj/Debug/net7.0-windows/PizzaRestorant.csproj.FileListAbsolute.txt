@@ -1,0 +1,15 @@
+C:\Users\SyperOlao\RiderProjects\PizzaResotant\PizzaRestorant\bin\Debug\net7.0-windows\PizzaRestorant.exe
+C:\Users\SyperOlao\RiderProjects\PizzaResotant\PizzaRestorant\bin\Debug\net7.0-windows\PizzaRestorant.deps.json
+C:\Users\SyperOlao\RiderProjects\PizzaResotant\PizzaRestorant\bin\Debug\net7.0-windows\PizzaRestorant.runtimeconfig.json
+C:\Users\SyperOlao\RiderProjects\PizzaResotant\PizzaRestorant\bin\Debug\net7.0-windows\PizzaRestorant.dll
+C:\Users\SyperOlao\RiderProjects\PizzaResotant\PizzaRestorant\bin\Debug\net7.0-windows\PizzaRestorant.pdb
+C:\Users\SyperOlao\RiderProjects\PizzaResotant\PizzaRestorant\obj\Debug\net7.0-windows\PizzaRestorant.csproj.AssemblyReference.cache
+C:\Users\SyperOlao\RiderProjects\PizzaResotant\PizzaRestorant\obj\Debug\net7.0-windows\PizzaRestorant.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\SyperOlao\RiderProjects\PizzaResotant\PizzaRestorant\obj\Debug\net7.0-windows\PizzaRestorant.AssemblyInfoInputs.cache
+C:\Users\SyperOlao\RiderProjects\PizzaResotant\PizzaRestorant\obj\Debug\net7.0-windows\PizzaRestorant.AssemblyInfo.cs
+C:\Users\SyperOlao\RiderProjects\PizzaResotant\PizzaRestorant\obj\Debug\net7.0-windows\PizzaRestorant.csproj.CoreCompileInputs.cache
+C:\Users\SyperOlao\RiderProjects\PizzaResotant\PizzaRestorant\obj\Debug\net7.0-windows\PizzaRestorant.dll
+C:\Users\SyperOlao\RiderProjects\PizzaResotant\PizzaRestorant\obj\Debug\net7.0-windows\refint\PizzaRestorant.dll
+C:\Users\SyperOlao\RiderProjects\PizzaResotant\PizzaRestorant\obj\Debug\net7.0-windows\PizzaRestorant.pdb
+C:\Users\SyperOlao\RiderProjects\PizzaResotant\PizzaRestorant\obj\Debug\net7.0-windows\PizzaRestorant.genruntimeconfig.cache
+C:\Users\SyperOlao\RiderProjects\PizzaResotant\PizzaRestorant\obj\Debug\net7.0-windows\ref\PizzaRestorant.dll
