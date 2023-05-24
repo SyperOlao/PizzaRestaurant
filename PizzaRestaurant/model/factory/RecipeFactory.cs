@@ -1,5 +1,4 @@
 ﻿using PizzaRestaurant.model.interfaces;
-using PizzaRestaurant.model.Utils;
 
 namespace PizzaRestaurant.model.factory
 {
@@ -28,7 +27,7 @@ namespace PizzaRestaurant.model.factory
             return Products.Sum(product => product.Value.Price * product.Key);
         }
 
-        protected int GetWeght()
+        protected int GetWeight()
         {
             return Products.Sum(product => product.Value.Weight * product.Key);
         }

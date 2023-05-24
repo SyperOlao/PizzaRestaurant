@@ -14,12 +14,12 @@ namespace PizzaRestaurant.model.factory.concrete_finished_product
 
         public int Weight { get; set; }
 
-        public Margherita(int price, int weght)
+        public Margherita(int price, int weight)
         {
             Name = "Margherita";
             Description = "Pizza with cheese";
             Price = price;
-            Weight = weght;
+            Weight = weight;
         }
     }
 }

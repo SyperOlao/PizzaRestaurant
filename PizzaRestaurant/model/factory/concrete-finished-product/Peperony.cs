@@ -13,12 +13,12 @@ namespace PizzaRestaurant.model.factory.concrete_finished_product
 
         public int Weight { get; set; }
 
-        public Peperony(int price, int weght)
+        public Peperony(int price, int weight)
         {   
             Name = "Peperony";
             Description = "Pizza with sausages";
             Price = price;
-            Weight = weght;
+            Weight = weight;
         }
     }
 }

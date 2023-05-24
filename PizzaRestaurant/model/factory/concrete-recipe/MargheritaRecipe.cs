@@ -10,17 +10,17 @@ namespace PizzaRestaurant.model.factory.concrete_recipe
 
         public MargheritaRecipe(Dictionary<int, IProduct> products) : base(products)
         {
-            this.Products.Add(5, new Cheese());
-            this.Products.Add(1, new Dough());
-            this.Products.Add(1, new Ketchup());
-            this.Products.Add(2, new Mayonnaise());
+            Products.Add(5, new Cheese());
+            Products.Add(1, new Dough());
+            Products.Add(1, new Ketchup());
+            Products.Add(2, new Mayonnaise());
             ProfitСoefficient = 3;
         }
 
         public override IFinishedProduct Cook()
         {
              
-            return new Margherita(this.GetCost() * ProfitСoefficient, this.GetWeght());
+            return new Margherita(GetCost() * ProfitСoefficient, GetWeight());
         }
     }
 }

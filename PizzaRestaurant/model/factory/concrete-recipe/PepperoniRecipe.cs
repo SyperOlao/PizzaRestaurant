@@ -4,24 +4,24 @@ using PizzaRestaurant.model.interfaces;
 
 namespace PizzaRestaurant.model.factory.concrete_recipe
 {
-    internal class PeperonyRecipe : RecipeFactory
+    internal class PepperoniRecipe : RecipeFactory
     {
 
         public int ProfitСoefficient { get; set; }
 
-        public PeperonyRecipe() : base()
+        public PepperoniRecipe()
         {
-            this.Products.Add(2, new Cheese());
-            this.Products.Add(3, new Sausages());
-            this.Products.Add(1, new Dough());
-            this.Products.Add(3, new Ketchup());
+            Products.Add(2, new Cheese());
+            Products.Add(3, new Sausages());
+            Products.Add(1, new Dough());
+            Products.Add(3, new Ketchup());
             ProfitСoefficient = 2;
         }
 
 
         public override IFinishedProduct Cook()
         {
-            return new Peperony(this.GetCost() * ProfitСoefficient, this.GetWeght());
+            return new Peperony(GetCost() * ProfitСoefficient, GetWeight());
         }
     }
 }
