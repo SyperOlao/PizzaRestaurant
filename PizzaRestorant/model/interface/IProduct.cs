@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PizzaRestorant.model.internal interface
+﻿namespace PizzaRestorant.model.interfaces
 {
-    internal interface IProduct
-{
-}
+    public interface IProduct
+    {
+        public string Id { get; }
+        public string Name { get; set; }
+        public int Price { get; set; }
+        public int Weight { get; set; }
+    }
 }

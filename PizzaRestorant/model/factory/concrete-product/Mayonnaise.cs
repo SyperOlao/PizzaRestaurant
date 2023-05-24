@@ -1,12 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PizzaRestorant.model.interfaces;
 
 namespace PizzaRestorant.model.factory.concrete_product
 {
-    internal class Mayonnaise
+    internal class Mayonnaise: IProduct
     {
+        public string Id { get; }
+        public string Name { get; set; }
+        public int Price { get; set; }
+        public int Weight { get; set; }
+
+        public Mayonnaise()
+        {
+            Id = Utils.Utils.GenerateID();
+            Name = "Mayonnaise";
+            Price = 35;
+            Weight = 10;
+        }
     }
 }
