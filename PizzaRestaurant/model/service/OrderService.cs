@@ -1,11 +1,10 @@
 ﻿using PizzaRestaurant.model.entity;
 using PizzaRestaurant.model.factory;
-using PizzaRestaurant.model.factory.concrete_product;
 using PizzaRestaurant.model.@interface;
 
 namespace PizzaRestaurant.model.service;
 
-public class OrderService
+public class OrderService:  IObserver
 {
     private readonly Wealth _wealth;
     private readonly Menu _menu;
@@ -25,7 +24,7 @@ public class OrderService
         _cooker = new Cooker(cook);
     }
 
-    public List<IFinishedProduct> GetOrder(List<IFinishedProduct> clientOrder)
+    private List<IFinishedProduct> GetOrder(List<IFinishedProduct> clientOrder)
     {
         var dish = new List<IFinishedProduct>();
         foreach (var finishedProduct in clientOrder)
@@ -63,5 +62,10 @@ public class OrderService
         }
 
         _wealth.CashReserve = -cost;
+    }
+
+    public void Update(List<IFinishedProduct> state)
+    {
+        GetOrder(state);
     }
 }

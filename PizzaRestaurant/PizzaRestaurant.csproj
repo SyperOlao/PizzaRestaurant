@@ -10,7 +10,12 @@
 
     <ItemGroup>
       <Folder Include="controller\" />
-      <Folder Include="view\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="view\Form1.cs">
+        <SubType>Form</SubType>
+      </Compile>
     </ItemGroup>
 
 </Project>
