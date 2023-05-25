@@ -1,6 +1,6 @@
 ﻿using PizzaRestaurant.model.factory.concrete_finished_product;
 using PizzaRestaurant.model.factory.concrete_product;
-using PizzaRestaurant.model.interfaces;
+using PizzaRestaurant.model.@interface;
 
 namespace PizzaRestaurant.model.factory.concrete_recipe
 {
@@ -11,17 +11,17 @@ namespace PizzaRestaurant.model.factory.concrete_recipe
 
         public PepperoniRecipe()
         {
-            Products.Add(2, new Cheese());
-            Products.Add(3, new Sausages());
-            Products.Add(1, new Dough());
-            Products.Add(3, new Ketchup());
+            Products.Add(new Cheese(), 2);
+            Products.Add(new Sausages(), 3);
+            Products.Add(new Dough(), 1);
+            Products.Add(new Ketchup(), 3);
             ProfitСoefficient = 2;
         }
 
 
         public override IFinishedProduct Cook()
         {
-            return new Peperony(GetCost() * ProfitСoefficient, GetWeight());
+            return new Pepperoni(GetCost() * ProfitСoefficient, GetWeight());
         }
     }
 }

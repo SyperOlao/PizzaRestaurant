@@ -1,4 +1,4 @@
-﻿using PizzaRestaurant.model.interfaces;
+﻿using PizzaRestaurant.model.@interface;
 using PizzaRestaurant.model.Utils;
 
 namespace PizzaRestaurant.model.factory.concrete_product

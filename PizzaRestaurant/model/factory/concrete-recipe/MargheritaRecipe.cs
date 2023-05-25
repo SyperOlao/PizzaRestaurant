@@ -1,6 +1,6 @@
 ﻿using PizzaRestaurant.model.factory.concrete_finished_product;
 using PizzaRestaurant.model.factory.concrete_product;
-using PizzaRestaurant.model.interfaces;
+using PizzaRestaurant.model.@interface;
 
 namespace PizzaRestaurant.model.factory.concrete_recipe
 {
@@ -8,12 +8,12 @@ namespace PizzaRestaurant.model.factory.concrete_recipe
     {
         public int ProfitСoefficient { get; set; }
 
-        public MargheritaRecipe(Dictionary<int, IProduct> products) : base(products)
+        public MargheritaRecipe()
         {
-            Products.Add(5, new Cheese());
-            Products.Add(1, new Dough());
-            Products.Add(1, new Ketchup());
-            Products.Add(2, new Mayonnaise());
+            Products.Add(new Cheese(), 5);
+            Products.Add(new Dough(), 1);
+            Products.Add(new Ketchup(), 1);
+            Products.Add(new Mayonnaise(),2);
             ProfitСoefficient = 3;
         }
 

@@ -1,14 +1,14 @@
-﻿using PizzaRestaurant.model.interfaces;
+﻿using PizzaRestaurant.model.@interface;
 
 namespace PizzaRestaurant.model.factory
 {
-    public abstract class RecipeFactory
+    public abstract class RecipeFactory: IRecipe
     {
         public string Id { get; set; }
-        protected Dictionary<int, IProduct> Products { get; set; }
+        public Dictionary<IProduct, int> Products { get; set; }
 
 
-        protected RecipeFactory(Dictionary<int, IProduct> products)
+        protected RecipeFactory(Dictionary<IProduct, int> products)
         {
             Id = Utils.Utils.GenerateID();
             Products = products;
@@ -17,19 +17,19 @@ namespace PizzaRestaurant.model.factory
         protected RecipeFactory()
         {
             Id = Utils.Utils.GenerateID();
-            Products = new Dictionary<int, IProduct>();
+            Products = new Dictionary<IProduct, int>();
         }
 
         public abstract IFinishedProduct Cook();
 
         protected int GetCost()
         {
-            return Products.Sum(product => product.Value.Price * product.Key);
+            return Products.Sum(product => product.Key.Price * product.Value);
         }
 
         protected int GetWeight()
         {
-            return Products.Sum(product => product.Value.Weight * product.Key);
+            return Products.Sum(product => product.Key.Weight * product.Value);
         }
     }
 }

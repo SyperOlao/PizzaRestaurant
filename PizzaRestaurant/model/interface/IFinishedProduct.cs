@@ -1,4 +1,4 @@
-﻿namespace PizzaRestaurant.model.interfaces
+﻿namespace PizzaRestaurant.model.@interface
 {
     public interface IFinishedProduct
     {

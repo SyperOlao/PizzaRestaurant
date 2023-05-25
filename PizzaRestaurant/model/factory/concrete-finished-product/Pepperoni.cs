@@ -1,9 +1,8 @@
-﻿using PizzaRestaurant.model.interfaces;
-using PizzaRestaurant.model.entity;
+﻿using PizzaRestaurant.model.@interface;
 
 namespace PizzaRestaurant.model.factory.concrete_finished_product
 {
-    internal class Peperony : IFinishedProduct
+    internal class Pepperoni : IFinishedProduct
     {
         public string Name { get; set; }
 
@@ -13,9 +12,9 @@ namespace PizzaRestaurant.model.factory.concrete_finished_product
 
         public int Weight { get; set; }
 
-        public Peperony(int price, int weight)
+        public Pepperoni(int price, int weight)
         {   
-            Name = "Peperony";
+            Name = "Pepperoni";
             Description = "Pizza with sausages";
             Price = price;
             Weight = weight;
