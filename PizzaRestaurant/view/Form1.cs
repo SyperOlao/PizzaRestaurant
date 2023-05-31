@@ -1,6 +1,5 @@
+using PizzaRestaurant.controller;
 using PizzaRestaurant.model.entity;
-using PizzaRestaurant.model.factory;
-using PizzaRestaurant.model.factory.concrete_recipe;
 using PizzaRestaurant.model.@interface;
 using PizzaRestaurant.model.observer;
 using PizzaRestaurant.model.service;
@@ -10,42 +9,35 @@ namespace PizzaRestaurant.view;
 
 public partial class Form1 : Form
 {
+    private readonly MenuController _menuController;
+    private readonly IMenu _menu = new Menu();
     public Form1()
     {
+ 
+        _menuController = new MenuController(_menu, new MenuView(dataGridView1));
         InitializeComponent();
     }
 
     private void Form1_Load(object sender, EventArgs e)
     {
-        var a = new MenuView(dataGridView1);
-        var b = new PepperoniRecipe();
-        var b1 = new MargheritaRecipe();
-        a.Add(b.Cook());
-        var l = new Wealth(3000);
-
-        var pp = b.Cook();
-        var client = new Client("Lol", new Address("fff", "aaa", 6), new List<IFinishedProduct> {pp });
-        var f = new Order(client);
-        var menu = new Menu(new Dictionary<IFinishedProduct, RecipeFactory> { { pp, new PepperoniRecipe() }, { b1.Cook(), new MargheritaRecipe() } });
+     
+        _menuController.InitMenu();
+        
+        var wealth = new Wealth(3000);
+        var key = _menu.RestaurantMenu.Keys;
+        var client = new Client("Lol", new Address("fff", "aaa", 6), new List<IFinishedProduct> { key.First() });
         var eventManager = new EventManager();
-        var orderService = new OrderService(l, menu);
+        var orderService = new OrderService(wealth, _menu);
         eventManager.Subscribe("order", orderService);
-      
-
         eventManager.Notify("order", client.Order);
-        label1.Text = l.CashReserve.ToString();
-
-
-
+        label1.Text = wealth.CashReserve.ToString();
     }
 
     private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
     {
-
     }
 
     private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
     {
-
     }
 }

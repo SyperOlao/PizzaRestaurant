@@ -11,7 +11,7 @@ namespace PizzaRestaurant.model.entity
 
         public List<IFinishedProduct> Order { get; set; }
 
-        
+        public int Money { get; set; }
         public Client(string name, Address address, List<IFinishedProduct> order)
         {
             Name = name;

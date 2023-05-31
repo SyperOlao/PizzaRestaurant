@@ -6,5 +6,7 @@ namespace PizzaRestaurant.view.interfaces
     {
         void Clear();
         void Add(IFinishedProduct finishedProduct);
+
+        void ShowAllMenu(IMenu menu);
     }
 }

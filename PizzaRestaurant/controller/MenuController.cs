@@ -1,19 +1,21 @@
 ﻿using PizzaRestaurant.model.@interface;
+using PizzaRestaurant.view.interfaces;
 
 namespace PizzaRestaurant.controller;
 
 public class MenuController
 {
-    private List<IFinishedProduct> _finishedProduct;
-
-    MenuController(List<IFinishedProduct> finishedProduct)
+    private readonly IMenu _menu;
+    private readonly IMenuView _view;
+    public MenuController(IMenu menu, IMenuView view)
     {
-        _finishedProduct = finishedProduct;
+        _menu = menu;
+        _view = view;
     }
+    
 
-
-    MenuController()
+    public void InitMenu()
     {
-        _finishedProduct = new List<IFinishedProduct>();
+        _view.ShowAllMenu(_menu);
     }
 }

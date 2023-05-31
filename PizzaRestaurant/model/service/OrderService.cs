@@ -6,9 +6,9 @@ namespace PizzaRestaurant.model.service;
 public class OrderService: IObserver
 {
     private readonly Wealth _wealth;
-    private readonly Menu _menu;
+    private readonly IMenu _menu;
     
-    public OrderService(Wealth wealth, Menu menu)
+    public OrderService(Wealth wealth, IMenu menu)
     {
         _wealth = wealth;
         _menu = menu;

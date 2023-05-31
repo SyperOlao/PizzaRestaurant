@@ -1,6 +1,5 @@
 ﻿using PizzaRestaurant.model.@interface;
 using PizzaRestaurant.view.interfaces;
-using System.Windows.Forms;
 
 namespace PizzaRestaurant.view.components
 {
@@ -22,6 +21,15 @@ namespace PizzaRestaurant.view.components
         public void Add(IFinishedProduct finishedProduct)
         {
             _dataGridView.Rows.Add(finishedProduct.Name, finishedProduct.Price, finishedProduct.Weight);
+        }
+
+        public void ShowAllMenu(IMenu menu)
+        {
+            var keys = menu.RestaurantMenu.Keys;
+            foreach (var key in keys)
+            {
+                Add(key);
+            }
         }
     }
 }
