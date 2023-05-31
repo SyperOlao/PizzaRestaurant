@@ -1,27 +1,22 @@
 ﻿using PizzaRestaurant.model.entity;
-using PizzaRestaurant.model.factory;
 using PizzaRestaurant.model.@interface;
 
 namespace PizzaRestaurant.model.service;
 
-public class OrderService:  IObserver
+public class OrderService: IObserver
 {
     private readonly Wealth _wealth;
     private readonly Menu _menu;
-    private readonly Cooker _cooker;
-
-    OrderService(Wealth wealth, Menu menu, Dictionary<IRecipe, RecipeFactory> cook)
+    
+    public OrderService(Wealth wealth, Menu menu)
     {
         _wealth = wealth;
         _menu = menu;
-        _cooker = new Cooker(cook);
     }
-
-    OrderService(Menu menu, Dictionary<IRecipe, RecipeFactory> cook)
+    
+    public void Update(List<IFinishedProduct> state)
     {
-        _wealth = new Wealth();
-        _menu = menu;
-        _cooker = new Cooker(cook);
+        GetOrder(state);
     }
 
     private List<IFinishedProduct> GetOrder(List<IFinishedProduct> clientOrder)
@@ -30,7 +25,7 @@ public class OrderService:  IObserver
         foreach (var finishedProduct in clientOrder)
         {
             BuyIngredients(finishedProduct);
-            var factory = _cooker.ToCook(GetRecipeFromOrder(finishedProduct));
+            var factory = _menu.RestaurantMenu[finishedProduct];
             dish.Add(factory.Cook());
         }
         return dish;
@@ -47,9 +42,9 @@ public class OrderService:  IObserver
 
     private IRecipe GetRecipeFromOrder(IFinishedProduct finishedProduct)
     {
-        if (!_menu.RestaurantMenu.ContainsKey(finishedProduct.Name))
+        if (!_menu.RestaurantMenu.ContainsKey(finishedProduct))
             throw new Exception("We haven't got recipe for this dish!");
-        var recipe = _menu.RestaurantMenu[finishedProduct.Name];
+        var recipe = _menu.RestaurantMenu[finishedProduct];
         return recipe;
     }
 
@@ -62,10 +57,5 @@ public class OrderService:  IObserver
         }
 
         _wealth.CashReserve = -cost;
-    }
-
-    public void Update(List<IFinishedProduct> state)
-    {
-        GetOrder(state);
     }
 }

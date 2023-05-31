@@ -10,7 +10,7 @@ public class Order
     private List<IFinishedProduct> ClientOrder { get; set; }
     private Client OrderedClient { get; set; }
 
-    public Order(List<IFinishedProduct> clientOrder, Client client)
+    public Order(Client client)
     {
         Events = new EventManager();
         OrderedClient = client;
