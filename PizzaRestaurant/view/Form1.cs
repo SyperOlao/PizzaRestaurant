@@ -21,20 +21,22 @@ public partial class Form1 : Form
         var b = new PepperoniRecipe();
         var b1 = new MargheritaRecipe();
         a.Add(b.Cook());
+        var l = new Wealth(3000);
 
-
-        var client = new Client("Lol", new Address("fff", "aaa", 6), new List<IFinishedProduct> { b.Cook() });
+        var pp = b.Cook();
+        var client = new Client("Lol", new Address("fff", "aaa", 6), new List<IFinishedProduct> {pp });
         var f = new Order(client);
-        var menu = new Menu(new Dictionary<IFinishedProduct, RecipeFactory>{{b.Cook(), new PepperoniRecipe()}, {b1.Cook(), new MargheritaRecipe()}});
+        var menu = new Menu(new Dictionary<IFinishedProduct, RecipeFactory> { { pp, new PepperoniRecipe() }, { b1.Cook(), new MargheritaRecipe() } });
         var eventManager = new EventManager();
-        var orderService = new OrderService(new Wealth(3000), menu);
-        eventManager.Subscribe("order", orderService); 
-        
+        var orderService = new OrderService(l, menu);
+        eventManager.Subscribe("order", orderService);
+      
+
         eventManager.Notify("order", client.Order);
-        
-        
-       
-        
+        label1.Text = l.CashReserve.ToString();
+
+
+
     }
 
     private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)

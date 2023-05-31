@@ -33,6 +33,7 @@ partial class Form1
         Name = new DataGridViewTextBoxColumn();
         Price = new DataGridViewTextBoxColumn();
         Weight = new DataGridViewTextBoxColumn();
+        label1 = new Label();
         ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
         SuspendLayout();
         // 
@@ -62,17 +63,28 @@ partial class Form1
         Weight.HeaderText = "Weight";
         Weight.Name = "Weight";
         // 
+        // label1
+        // 
+        label1.AutoSize = true;
+        label1.Location = new Point(616, 40);
+        label1.Name = "label1";
+        label1.Size = new Size(38, 15);
+        label1.TabIndex = 1;
+        label1.Text = "label1";
+        // 
         // Form1
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(800, 450);
+        Controls.Add(label1);
         Controls.Add(dataGridView1);
         this.Name.Name = "Form1";
         Text = "Pizza Resorant";
         Load += Form1_Load;
         ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
         ResumeLayout(false);
+        PerformLayout();
     }
 
     #endregion
@@ -81,4 +93,5 @@ partial class Form1
     private DataGridViewTextBoxColumn Name;
     private DataGridViewTextBoxColumn Price;
     private DataGridViewTextBoxColumn Weight;
+    private Label label1;
 }

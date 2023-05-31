@@ -56,6 +56,6 @@ public class OrderService: IObserver
             throw new Exception("Store busted!!");
         }
 
-        _wealth.CashReserve = -cost;
+        _wealth.CashReserve -= cost;
     }
 }
