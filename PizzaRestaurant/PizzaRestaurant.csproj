@@ -9,10 +9,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="controller\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <Compile Update="view\Form1.cs">
         <SubType>Form</SubType>
       </Compile>

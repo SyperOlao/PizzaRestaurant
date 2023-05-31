@@ -1,4 +1,6 @@
-namespace PizzaResotant;
+using PizzaRestaurant.view;
+
+namespace PizzaRestaurant;
 
 static class Program
 {

@@ -1,4 +1,4 @@
-﻿namespace PizzaResotant;
+﻿namespace PizzaRestaurant.view;
 
 partial class Form1
 {
@@ -29,11 +29,56 @@ partial class Form1
     /// </summary>
     private void InitializeComponent()
     {
-        this.components = new System.ComponentModel.Container();
-        this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-        this.ClientSize = new System.Drawing.Size(800, 450);
-        this.Text = "Form1";
+        dataGridView1 = new DataGridView();
+        Name = new DataGridViewTextBoxColumn();
+        Price = new DataGridViewTextBoxColumn();
+        Weight = new DataGridViewTextBoxColumn();
+        ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+        SuspendLayout();
+        // 
+        // dataGridView1
+        // 
+        dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+        dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Name, Price, Weight });
+        dataGridView1.Location = new Point(12, 28);
+        dataGridView1.Name = "dataGridView1";
+        dataGridView1.RowTemplate.Height = 25;
+        dataGridView1.Size = new Size(344, 123);
+        dataGridView1.TabIndex = 0;
+        dataGridView1.CellClick += dataGridView1_CellClick;
+        // 
+        // Name
+        // 
+        Name.HeaderText = "Name";
+        Name.Name = "Name";
+        // 
+        // Price
+        // 
+        Price.HeaderText = "Price";
+        Price.Name = "Price";
+        // 
+        // Weight
+        // 
+        Weight.HeaderText = "Weight";
+        Weight.Name = "Weight";
+        // 
+        // Form1
+        // 
+        AutoScaleDimensions = new SizeF(7F, 15F);
+        AutoScaleMode = AutoScaleMode.Font;
+        ClientSize = new Size(800, 450);
+        Controls.Add(dataGridView1);
+        this.Name.Name = "Form1";
+        Text = "Pizza Resorant";
+        Load += Form1_Load;
+        ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+        ResumeLayout(false);
     }
 
     #endregion
+
+    private DataGridView dataGridView1;
+    private DataGridViewTextBoxColumn Name;
+    private DataGridViewTextBoxColumn Price;
+    private DataGridViewTextBoxColumn Weight;
 }
