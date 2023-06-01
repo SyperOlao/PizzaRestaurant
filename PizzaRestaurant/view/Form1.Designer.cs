@@ -41,6 +41,7 @@ partial class Form1
         label5 = new Label();
         label6 = new Label();
         button1 = new Button();
+        listBox2 = new ListBox();
         ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
         SuspendLayout();
         // 
@@ -154,11 +155,22 @@ partial class Form1
         button1.UseVisualStyleBackColor = true;
         button1.Click += button1_Click;
         // 
+        // listBox2
+        // 
+        listBox2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+        listBox2.FormattingEnabled = true;
+        listBox2.ItemHeight = 21;
+        listBox2.Location = new Point(51, 386);
+        listBox2.Name = "listBox2";
+        listBox2.Size = new Size(245, 130);
+        listBox2.TabIndex = 9;
+        // 
         // Form1
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(1048, 572);
+        Controls.Add(listBox2);
         Controls.Add(button1);
         Controls.Add(label6);
         Controls.Add(label5);
@@ -190,4 +202,5 @@ partial class Form1
     private Label label5;
     private Label label6;
     private Button button1;
+    private ListBox listBox2;
 }

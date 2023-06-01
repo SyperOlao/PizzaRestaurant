@@ -41,6 +41,6 @@ public partial class Form1 : Form
         _orderController.UpdateOrder();
         _orderController.ShowOrderPrice(label6);
         _orderController.ShowWealth(label1);
-        
+
     }
 }

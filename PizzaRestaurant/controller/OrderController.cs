@@ -43,8 +43,8 @@ public class OrderController
         if(finishedProduct == null) return;
         
         _client.Order.Add(finishedProduct);
-        
-        _orderView.UpdateOrder(_client.Order);
+
+        UpdateOrder();
     }
 
     public void UpdateOrder()

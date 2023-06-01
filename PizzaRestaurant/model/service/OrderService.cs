@@ -21,33 +21,32 @@ public class OrderService: IObserver
 
     private List<IFinishedProduct> GetOrder(List<IFinishedProduct> clientOrder)
     {
-        var dish = new List<IFinishedProduct>();
+        var order = new List<IFinishedProduct>();
         foreach (var finishedProduct in clientOrder)
         {
             BuyIngredients(finishedProduct);
             var factory = _menu.RestaurantMenu[finishedProduct];
             var product = factory.Cook();
             _wealth.CashReserve += product.Price;
-            dish.Add(product);
+            order.Add(product);
         }
-        return dish;
+        return order;
     }
 
     private void BuyIngredients(IFinishedProduct finishedProduct)
     {
-        var products = GetRecipeFromOrder(finishedProduct);
+        var products = GetFactoryFromOrder(finishedProduct);
         foreach (var product in products.Products)
         {
             BuyProduct(product);
         }
     }
 
-    private IRecipe GetRecipeFromOrder(IFinishedProduct finishedProduct)
+    private IRecipe GetFactoryFromOrder(IFinishedProduct finishedProduct)
     {
         if (!_menu.RestaurantMenu.ContainsKey(finishedProduct))
             throw new Exception("We haven't got recipe for this dish!");
-        var recipe = _menu.RestaurantMenu[finishedProduct];
-        return recipe;
+        return _menu.RestaurantMenu[finishedProduct];
     }
 
     private void BuyProduct(KeyValuePair<IProduct, int> product)
