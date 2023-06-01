@@ -33,9 +33,7 @@ namespace PizzaRestaurant.view.components
 
         public string? GetSelectedName(DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < -1) return null;
-
-            return _dataGridView[e.ColumnIndex, e.RowIndex].Value.ToString();
+            return e.RowIndex < -1 ? null : _dataGridView[e.ColumnIndex, e.RowIndex].Value.ToString();
         }
     }
 }
