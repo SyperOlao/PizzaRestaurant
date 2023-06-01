@@ -26,7 +26,9 @@ public class OrderService: IObserver
         {
             BuyIngredients(finishedProduct);
             var factory = _menu.RestaurantMenu[finishedProduct];
-            dish.Add(factory.Cook());
+            var product = factory.Cook();
+            _wealth.CashReserve += product.Price;
+            dish.Add(product);
         }
         return dish;
     }

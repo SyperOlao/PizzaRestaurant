@@ -16,7 +16,7 @@ public partial class Form1 : Form
     {
         InitializeComponent();
         _menuController = new MenuController(_menu, new MenuView(dataGridView1));
-        _client = new Client("Lol");
+        _client = new Client("Alice");
         _orderController = new OrderController(_client, new OrderView(listBox1), _menu);
     }
 
@@ -24,6 +24,7 @@ public partial class Form1 : Form
     {
         _menuController.InitMenu();
         _orderController.Subscribe();
+        _orderController.ShowWealth(label1);
     }
 
     private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -39,6 +40,7 @@ public partial class Form1 : Form
         _orderController.Notify();
         _orderController.UpdateOrder();
         _orderController.ShowOrderPrice(label6);
+        _orderController.ShowWealth(label1);
         
     }
 }
