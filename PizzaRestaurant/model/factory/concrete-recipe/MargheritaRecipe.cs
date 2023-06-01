@@ -13,7 +13,7 @@ namespace PizzaRestaurant.model.factory.concrete_recipe
             Products.Add(new Cheese(), 5);
             Products.Add(new Dough(), 1);
             Products.Add(new Ketchup(), 1);
-            Products.Add(new Mayonnaise(),2);
+            Products.Add(new Mayonnaise(),7);
             ProfitСoefficient = 3;
         }
 
