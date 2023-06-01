@@ -5,15 +5,16 @@ namespace PizzaRestaurant.model.observer;
 
 public class Order
 {
-    private EventManager Events { get; set; }
+    public EventManager Events { get; set; }
     
     private List<IFinishedProduct> ClientOrder { get; set; }
-    private Client OrderedClient { get; set; }
+    private IClient OrderedClient { get; set; }
 
-    public Order(Client client)
+    public Order(IClient client)
     {
         Events = new EventManager();
         OrderedClient = client;
+        ClientOrder = new List<IFinishedProduct>();
     }
 
     public void GetOrder()

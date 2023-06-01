@@ -2,7 +2,7 @@
 
 namespace PizzaRestaurant.model.entity
 {
-    public class Client: IClient
+    public class Client: IClient, IObserver
     {
         
         public string Name { get; set; }
@@ -29,5 +29,9 @@ namespace PizzaRestaurant.model.entity
             return Order.Sum(product => product.Price);
         }
 
+        public void Update(List<IFinishedProduct> state)
+        {
+            Order = new List<IFinishedProduct>();
+        }
     }
 }

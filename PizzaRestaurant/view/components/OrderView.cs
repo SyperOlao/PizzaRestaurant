@@ -11,7 +11,7 @@ public class OrderView
         _listBox = listBox;
     }
 
-    public void InitOrder(List<IFinishedProduct> products)
+    public void UpdateOrder(List<IFinishedProduct> products)
     {
         _listBox.Items.Clear();
         
