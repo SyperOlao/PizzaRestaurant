@@ -68,6 +68,6 @@ public partial class Form1 : Form
     {
         var graphics = e.Graphics;
         // _pepperoni.DrawPizza(graphics);
-        _margherita.DrawPizza(graphics);
+        _margherita.Draw(graphics);
     }
 }
