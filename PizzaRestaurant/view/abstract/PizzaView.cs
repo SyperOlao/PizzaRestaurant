@@ -15,4 +15,5 @@ public abstract class PizzaView
     }
 
     public abstract void DrawPizza(Graphics graphics);
+    public abstract void DrawFractal(Graphics graphics);
 }

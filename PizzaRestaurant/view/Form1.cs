@@ -14,7 +14,8 @@ public partial class Form1 : Form
     private readonly Client _client;
     private readonly Graphics _graphics;
     private Bitmap _bitmap;
-    private PizzaView _peperony;
+    private PizzaView _pepperoni;
+    private PizzaView _margherita;
 
     public Form1()
     {
@@ -32,7 +33,8 @@ public partial class Form1 : Form
         _orderController.Subscribe();
         _orderController.ShowWealth(label1);
         _bitmap = new Bitmap(ClientSize.Width, ClientSize.Height);
-        _peperony = new PepperoniView(pictureBox1);
+        _pepperoni = new PepperoniView(pictureBox1);
+        _margherita = new MargheritaView(pictureBox1);
     }
 
     private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -64,7 +66,8 @@ public partial class Form1 : Form
 
     private void pictureBox1_Paint(object sender, PaintEventArgs e)
     {
-        Graphics graphics = e.Graphics;
-        _peperony.DrawPizza(graphics);
+        var graphics = e.Graphics;
+        // _pepperoni.DrawPizza(graphics);
+        _margherita.DrawPizza(graphics);
     }
 }
