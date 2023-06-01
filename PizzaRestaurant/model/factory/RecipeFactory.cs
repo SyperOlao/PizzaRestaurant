@@ -1,5 +1,5 @@
 ﻿using PizzaRestaurant.model.@interface;
-
+/*Абстрактная фабрика*/
 namespace PizzaRestaurant.model.factory
 {
     public abstract class RecipeFactory: IRecipe

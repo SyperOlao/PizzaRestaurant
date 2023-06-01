@@ -22,7 +22,6 @@ public class MenuController
     public IFinishedProduct? GetProductByName(DataGridViewCellEventArgs e)
     {
         var name = _view.GetSelectedName(e);
-        Console.WriteLine("name", name);
         if (name == null) return null;
         var keys = _menu.RestaurantMenu.Keys;
         return keys.FirstOrDefault(key => key.Name.Equals(name));

@@ -4,8 +4,9 @@ using PizzaRestaurant.model.@interface;
 
 namespace PizzaRestaurant.model.factory.concrete_recipe
 {
-    internal class MargheritaRecipe : RecipeFactory
+    public class MargheritaRecipe : RecipeFactory
     {
+        // Коэффициент прибыли
         public int ProfitСoefficient { get; set; }
 
         public MargheritaRecipe()
@@ -19,7 +20,6 @@ namespace PizzaRestaurant.model.factory.concrete_recipe
 
         public override IFinishedProduct Cook()
         {
-             
             return new Margherita(GetCost() * ProfitСoefficient, GetWeight());
         }
     }

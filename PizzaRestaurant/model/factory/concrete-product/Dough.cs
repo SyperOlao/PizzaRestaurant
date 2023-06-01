@@ -2,7 +2,7 @@
 
 namespace PizzaRestaurant.model.factory.concrete_product
 {
-    //Тесто
+    // Тесто
     public class Dough : IProduct
     {
         public string Id { get; }

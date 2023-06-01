@@ -4,6 +4,7 @@ namespace PizzaRestaurant.model.observer;
 
 public class EventManager
 {
+    // называние события -> список подписчиков
     private Dictionary<string, List<IObserver>> Observers { get; set; }
 
     public EventManager()
