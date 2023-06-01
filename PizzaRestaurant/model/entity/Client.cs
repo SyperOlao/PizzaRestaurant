@@ -18,6 +18,12 @@ namespace PizzaRestaurant.model.entity
             Address = address;
             Order = order;
         }
+        public Client(string name)
+        {
+            Name = name;
+            Address = new Address("", "", 0);
+            Order = new List<IFinishedProduct>();
+        }
         public int CostOfOrder()
         {
             return Order.Sum(product => product.Price);

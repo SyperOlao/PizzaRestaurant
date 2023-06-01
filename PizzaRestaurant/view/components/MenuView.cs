@@ -5,14 +5,13 @@ namespace PizzaRestaurant.view.components
 {
     public class MenuView : IMenuView
     {
-
         private readonly DataGridView _dataGridView;
 
         public MenuView(DataGridView dataGridView)
         {
             _dataGridView = dataGridView;
         }
-        
+
         public void Clear()
         {
             _dataGridView.Rows.Clear();
@@ -30,6 +29,13 @@ namespace PizzaRestaurant.view.components
             {
                 Add(key);
             }
+        }
+
+        public string? GetSelectedName(DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < -1) return null;
+
+            return _dataGridView[e.ColumnIndex, e.RowIndex].Value.ToString();
         }
     }
 }

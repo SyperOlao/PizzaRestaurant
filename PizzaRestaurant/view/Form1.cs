@@ -10,27 +10,28 @@ namespace PizzaRestaurant.view;
 public partial class Form1 : Form
 {
     private readonly MenuController _menuController;
+    private readonly OrderController _orderController;
     private readonly IMenu _menu = new Menu();
+    private readonly IClient _client;
+    private readonly Wealth _wealth = new Wealth(3000);
     public Form1()
     {
- 
-        _menuController = new MenuController(_menu, new MenuView(dataGridView1));
         InitializeComponent();
+        _menuController = new MenuController(_menu, new MenuView(dataGridView1));
+        _client = new Client("Lol");
+        _orderController = new OrderController(_client, new OrderView(listBox1));
     }
 
     private void Form1_Load(object sender, EventArgs e)
     {
-     
+
         _menuController.InitMenu();
         
-        var wealth = new Wealth(3000);
-        var key = _menu.RestaurantMenu.Keys;
-        var client = new Client("Lol", new Address("fff", "aaa", 6), new List<IFinishedProduct> { key.First() });
         var eventManager = new EventManager();
-        var orderService = new OrderService(wealth, _menu);
+        var orderService = new OrderService(_wealth, _menu);
         eventManager.Subscribe("order", orderService);
-        eventManager.Notify("order", client.Order);
-        label1.Text = wealth.CashReserve.ToString();
+        eventManager.Notify("order", _client.Order);
+        label1.Text = _wealth.CashReserve.ToString();
     }
 
     private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -39,5 +40,12 @@ public partial class Form1 : Form
 
     private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
     {
+        label1.Text = sender.ToString();
+    }
+
+    private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+    {
+        var product = _menuController.GetProductByName(e);
+        _orderController.AddToOrder(product);
     }
 }

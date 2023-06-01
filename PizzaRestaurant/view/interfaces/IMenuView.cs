@@ -8,5 +8,7 @@ namespace PizzaRestaurant.view.interfaces
         void Add(IFinishedProduct finishedProduct);
 
         void ShowAllMenu(IMenu menu);
+
+        string? GetSelectedName(DataGridViewCellEventArgs e);
     }
 }
