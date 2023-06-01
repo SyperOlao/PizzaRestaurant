@@ -24,7 +24,10 @@ public class OrderController
         _orderView.InitOrder(_client.Order);
     }
 
-    
 
+    public void ShowOrderPrice(Label label)
+    {
+        label.Text = _client.CostOfOrder().ToString();
+    }
 
 }

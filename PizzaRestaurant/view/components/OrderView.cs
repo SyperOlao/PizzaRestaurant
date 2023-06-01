@@ -13,9 +13,12 @@ public class OrderView
 
     public void InitOrder(List<IFinishedProduct> products)
     {
+        _listBox.Items.Clear();
+        
         foreach (var product in products)
         {
-            _listBox.Text += product.Name;
+            _listBox.Items.Add("Name: " + product.Name + ",\t Price: " + product.Price);
+            
         }
     }
 }

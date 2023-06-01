@@ -40,12 +40,13 @@ public partial class Form1 : Form
 
     private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
     {
-        label1.Text = sender.ToString();
+        var product = _menuController.GetProductByName(e);
+        _orderController.AddToOrder(product);
+        _orderController.ShowOrderPrice(label1);
     }
 
     private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
     {
-        var product = _menuController.GetProductByName(e);
-        _orderController.AddToOrder(product);
+      
     }
 }
