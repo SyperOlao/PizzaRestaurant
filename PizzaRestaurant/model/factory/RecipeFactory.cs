@@ -1,4 +1,6 @@
 ﻿using PizzaRestaurant.model.@interface;
+using PizzaRestaurant.view.@abstract;
+
 /*Абстрактная фабрика*/
 namespace PizzaRestaurant.model.factory
 {
@@ -6,14 +8,7 @@ namespace PizzaRestaurant.model.factory
     {
         public string Id { get; set; }
         public Dictionary<IProduct, int> Products { get; set; }
-
-
-        protected RecipeFactory(Dictionary<IProduct, int> products)
-        {
-            Id = Utils.Utils.GenerateID();
-            Products = products;
-        }
-
+        
         protected RecipeFactory()
         {
             Id = Utils.Utils.GenerateID();

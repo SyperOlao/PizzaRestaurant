@@ -1,6 +1,7 @@
 ﻿using PizzaRestaurant.model.factory.concrete_finished_product;
 using PizzaRestaurant.model.factory.concrete_product;
 using PizzaRestaurant.model.@interface;
+using PizzaRestaurant.view.components;
 
 namespace PizzaRestaurant.model.factory.concrete_recipe
 {
