@@ -43,7 +43,9 @@ partial class Form1
         label6 = new Label();
         button1 = new Button();
         timer1 = new System.Windows.Forms.Timer(components);
+        pictureBox1 = new PictureBox();
         ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
         SuspendLayout();
         // 
         // dataGridView1
@@ -176,11 +178,22 @@ partial class Form1
         // 
         timer1.Tick += timer1_Tick;
         // 
+        // pictureBox1
+        // 
+        pictureBox1.BackColor = Color.AliceBlue;
+        pictureBox1.Location = new Point(57, 435);
+        pictureBox1.Name = "pictureBox1";
+        pictureBox1.Size = new Size(922, 593);
+        pictureBox1.TabIndex = 9;
+        pictureBox1.TabStop = false;
+        pictureBox1.Paint += pictureBox1_Paint;
+        // 
         // Form1
         // 
         AutoScaleDimensions = new SizeF(12F, 30F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(1797, 1144);
+        Controls.Add(pictureBox1);
         Controls.Add(button1);
         Controls.Add(label6);
         Controls.Add(label5);
@@ -195,6 +208,7 @@ partial class Form1
         Text = "Pizza Resorant";
         Load += Form1_Load;
         ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+        ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
         ResumeLayout(false);
         PerformLayout();
     }
@@ -214,4 +228,5 @@ partial class Form1
     private Label label6;
     private Button button1;
     private System.Windows.Forms.Timer timer1;
+    private PictureBox pictureBox1;
 }

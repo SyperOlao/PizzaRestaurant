@@ -2,15 +2,17 @@
 
 public abstract class PizzaView
 {
-    protected readonly Graphics Graphics;
     protected readonly PictureBox PictureBox;
-    protected const int DiameterPizza = 100;
+    protected readonly int WidthCenter;
+    protected readonly int HeightCenter;
+    protected const int DiameterPizza = 300;
 
-    protected PizzaView(Graphics graphics, PictureBox pictureBox)
+    protected PizzaView(PictureBox pictureBox)
     {
-        Graphics = graphics;
         PictureBox = pictureBox;
+        WidthCenter = PictureBox.Width / 2;
+        HeightCenter = PictureBox.Height / 2;
     }
 
-    public abstract void DrawPizza();
+    public abstract void DrawPizza(Graphics graphics);
 }
