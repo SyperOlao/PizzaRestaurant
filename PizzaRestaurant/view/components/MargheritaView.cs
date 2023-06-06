@@ -34,7 +34,7 @@ public class MargheritaView : PizzaView
         graphics.FillRectangle(new SolidBrush(Color.ForestGreen), x, y, DiameterDill, DiameterDill);
     }
 
-    public override void Draw(Graphics graphics)
+    public override void Draw(Graphics graphics, int tick)
     {
         DrawPizza(graphics);
 

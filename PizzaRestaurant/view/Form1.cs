@@ -1,3 +1,5 @@
+using System.Runtime.InteropServices;
+using System.Timers;
 using PizzaRestaurant.controller;
 using PizzaRestaurant.model.entity;
 using PizzaRestaurant.model.@interface;
@@ -14,7 +16,7 @@ public partial class Form1 : Form
     private readonly Client _client;
     private readonly Graphics _graphics;
     private Bitmap _bitmap;
-    int tickcount = 1;
+    private int _tick = 1;
 
     public Form1()
     {
@@ -25,19 +27,20 @@ public partial class Form1 : Form
         _orderController = new OrderController(_client, new OrderView(listBox1), _menu);
         _graphics = CreateGraphics();
         timer1.Start();
-        timer1.Tick += new EventHandler(timer1_Tick);
-        timer1.Interval = (1000);
         timer1.Enabled = true;
     }
 
     private void Form1_Load(object sender, EventArgs e)
     {
+        AllocConsole();
         _menuController.InitMenu();
         _orderController.Subscribe();
         _orderController.ShowWealth(label1);
         _bitmap = new Bitmap(ClientSize.Width, ClientSize.Height);
     }
-
+    [DllImport("kernel32.dll", SetLastError = true)]
+    [return: MarshalAs(UnmanagedType.Bool)]
+    static extern bool AllocConsole();
     private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
     {
         var product = _menuController.GetProductByName(e);
@@ -56,31 +59,26 @@ public partial class Form1 : Form
 
     private void timer1_Tick(object sender, EventArgs e)
     {
-
-        tickcount++;
-        if (tickcount > 3)
-        {
-            timer1.Stop();
-            timer1.Enabled = false;
-        }
+        using var graphics = Graphics.FromImage(_bitmap);
+        pictureBox1.Refresh();
+        _tick += 1;
+        _orderController.ShowOrderPrice(label6);
+        _orderController.ShowWealth(label1);
     }
 
     private void pictureBox1_Paint(object sender, PaintEventArgs e)
     {
         var graphics = e.Graphics;
         var products = _menu.RestaurantMenu.Keys;
-        foreach (var product in products)
+        if (_tick >5)
         {
-            if (tickcount == 1)
-            {
-                _orderController.AddToOrder(product);
-                _menu.View[product].Draw(graphics);         
-            }
-       
+            // _orderController.AddToOrder(products.ElementAt(1));
+           // _menu.View[products.ElementAt(1)].Draw(graphics, _tick);
         }
 
-        _orderController.ShowOrderPrice(label6);
-        _orderController.ShowWealth(label1);
-      
+
+        // _orderController.AddToOrder(products.ElementAt(0));
+         _menu.View[products.ElementAt(0)].Draw(graphics,  _tick);
+        
     }
 }
