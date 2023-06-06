@@ -16,7 +16,8 @@ public partial class Form1 : Form
     private readonly Client _client;
     private readonly Graphics _graphics;
     private Bitmap _bitmap;
-    private int _tick = 1;
+    private int _tick;
+    private int _tick2 = 0;
 
     public Form1()
     {
@@ -51,6 +52,11 @@ public partial class Form1 : Form
 
     private void button1_Click(object sender, EventArgs e)
     {
+        Buy();
+    }
+
+    private void Buy()
+    {
         _orderController.Notify();
         _orderController.UpdateOrder();
         _orderController.ShowOrderPrice(label6);
@@ -62,23 +68,45 @@ public partial class Form1 : Form
         using var graphics = Graphics.FromImage(_bitmap);
         pictureBox1.Refresh();
         _tick += 1;
+        if (_tick >= 10)
+        {
+            _tick2 += 1;
+        }
         _orderController.ShowOrderPrice(label6);
         _orderController.ShowWealth(label1);
     }
 
     private void pictureBox1_Paint(object sender, PaintEventArgs e)
     {
-        var graphics = e.Graphics;
-        var products = _menu.RestaurantMenu.Keys;
-        if (_tick >5)
+        if (_tick <= 10)
         {
-            // _orderController.AddToOrder(products.ElementAt(1));
-            _menu.View[products.ElementAt(1)].Draw(graphics, _tick);
+            Amin(e, 1, _tick);
+        }
+        else
+        {
+            Amin(e, 0, _tick2);    
+        }
+        
+
+    }
+
+    private void Amin(PaintEventArgs e, int index, int tick)
+    {
+        Console.WriteLine(tick);
+        var products = _menu.RestaurantMenu.Keys;
+        if (index > products.Count) throw new Exception("Index is not valid");
+        var graphics = e.Graphics;
+      
+        switch (tick)
+        {
+            case 2:
+                _orderController.AddToOrder(products.ElementAt(index));
+                break;
+            case 10:
+                Buy();
+                break;
         }
 
-
-        // _orderController.AddToOrder(products.ElementAt(0));
-        // _menu.View[products.ElementAt(0)].Draw(graphics,  _tick);
-        
+        _menu.View[products.ElementAt(index)].Draw(graphics, tick);
     }
 }
