@@ -1,4 +1,4 @@
-# PizzaRestotant
+# PizzaRestaurant
 This is a template of work in resotourants using mvc fabric and observer patterns. This application contains short animation of cooking and posiability to make an order by click in table column name  
 
 ![image](https://github.com/SyperOlao/PizzaRestotant/assets/70114083/c9cba7b3-f2ee-43d7-a21e-2b40fe942a9e)
