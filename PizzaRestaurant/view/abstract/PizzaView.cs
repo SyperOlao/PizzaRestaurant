@@ -5,6 +5,7 @@ public abstract class PizzaView
     protected readonly int WidthCenter;
     protected readonly int HeightCenter;
     protected const int DiameterPizza = 300;
+    protected const int R = DiameterPizza / 2;
 
     protected PizzaView(Control pictureBox)
     {

@@ -5,9 +5,7 @@ namespace PizzaRestaurant.view.components;
 public class PepperoniView : PizzaView
 {
     private const int DiameterPepperoni = 25;
-    private const int AmountPepperoni = 25;
     private const int Limit = 10;
-    private const int R = DiameterPizza / 2;
 
     public PepperoniView(Control pictureBox) : base(pictureBox)
     {

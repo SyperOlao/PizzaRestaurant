@@ -73,12 +73,12 @@ public partial class Form1 : Form
         if (_tick >5)
         {
             // _orderController.AddToOrder(products.ElementAt(1));
-           // _menu.View[products.ElementAt(1)].Draw(graphics, _tick);
+            _menu.View[products.ElementAt(1)].Draw(graphics, _tick);
         }
 
 
         // _orderController.AddToOrder(products.ElementAt(0));
-         _menu.View[products.ElementAt(0)].Draw(graphics,  _tick);
+        // _menu.View[products.ElementAt(0)].Draw(graphics,  _tick);
         
     }
 }
