@@ -33,15 +33,11 @@ public partial class Form1 : Form
 
     private void Form1_Load(object sender, EventArgs e)
     {
-        AllocConsole();
         _menuController.InitMenu();
         _orderController.Subscribe();
         _orderController.ShowWealth(label1);
         _bitmap = new Bitmap(ClientSize.Width, ClientSize.Height);
     }
-    [DllImport("kernel32.dll", SetLastError = true)]
-    [return: MarshalAs(UnmanagedType.Bool)]
-    static extern bool AllocConsole();
     private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
     {
         var product = _menuController.GetProductByName(e);
@@ -92,7 +88,6 @@ public partial class Form1 : Form
 
     private void Amin(PaintEventArgs e, int index, int tick)
     {
-        Console.WriteLine(tick);
         var products = _menu.RestaurantMenu.Keys;
         if (index > products.Count) throw new Exception("Index is not valid");
         var graphics = e.Graphics;
